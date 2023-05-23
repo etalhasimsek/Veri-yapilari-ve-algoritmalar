@@ -1,32 +1,46 @@
-# Veri-yapilari-ve-algoritmalar
-Insertion Sort
-Soru 1:
-[22,27,16,2,18,6] -> Insertion Sort
-Yukarı verilen dizinin sort türüne göre aşamalarını yazınız.
-Çözüm:
+# Proje 2 - Merge Sort
+
+**[16,21,11,8,12,22]** 
+
+##   Soru 1 
+
+Yukarıdaki dizinin merge sort türüne göre aşamalarını yazınız.
+
+## Cevap 1
+
+Merge Sort, diziyi böl ve fethet yaklaşımını kullanır. Bu algoritmanın aşamaları aşağıda belirtilmiştir:
+
+**Verilen dizi:** [16,21,11,8,12,22]
+
+ 1. **Bölme aşaması:** İlk olarak, verilen dizi daha küçük parçalara
+    bölünür. Bölünme işlemi, her dizi tek bir elemana indirgenene kadar
+    tekrarlanır.  
+    
+   
+ - [16, 21, 11, 8, 12, 22] -> [[16, 21, 11], [8, 12, 22]]  
+ - [[16,21,11], [8, 12, 22]] -> [[[16], [21, 11]], [[8], [12, 22]]]  
+ - [[[16], [21, 11]], [[8], [12, 22]]] -> [[[[16]], [[21], [11]]], [[[8]], [[12],[22]]]]  
+ 
+ 2. **Birleştirme aşaması:** Şimdi, daha küçük parçaları
+        karşılaştırarak ve sıralayarak büyük parçalara birleştiririz. Bu
+        işlem, tüm dizinin tamamen sıralanana kadar tekrarlanır.  
+
+- [[[[16]], [[21], [11]]], [[[8]], [[12], [22]]]] -> [[[16], [11, 21]], [[8], [12, 22]]]  
+- [[[16], [11, 21]], [[8], [12, 22]]] -> [[11, 16, 21], [8, 12, 22]]  
+- [[11, 16, 21], [8, 12, 22]] -> [8, 11, 12, 16, 21, 22]  
+
+**Sonuç:** [8, 11, 12, 16, 21, 22]  
+
+## Soru 2
+
 Big-O gösterimini yazınız.
-[22,27,16,2,18,6] == n
-[2,27,16,22,18,6]== n-1
-[2,6,16,22,18,27] == n-2
-[2,6,16,18,22,27] == 1
 
-Big O Notation = n*(n+1)/2 =(n^2+n) / 2 = n^2
-Big O Notation = O(n^2)
+## Cevap 2 
+Merge Sort'un Big-O gösterimi O(n log n) olarak ifade edilir. Bunun nedeni algoritmanın "böl ve fethet" yaklaşımıdır.
 
-Soru 2:
-Time Complexity: Dizi sıralandıktan sonra 18 sayısı aşağıdaki case'lerden hangisinin kapsamına girer? Yazınız
+1.  **Bölme aşaması**: Algoritma, giriş dizisini daha küçük parçalara böler. Her bir bölme işlemi, dizinin boyutunu yarıya indirir. Bu nedenle, bu bölme işlemi logaritmik zaman karmaşıklığına (log n) sahip olacaktır. Çünkü, genel olarak, bir şeyi sürekli olarak yarıya böldüğümüzde, bunu logaritmik sayıda kez yapabiliriz.
+    
+2.  **Birleştirme aşaması**: Daha sonra, bu küçük parçalar, sıralanmış bir dizi oluşturmak üzere birleştirilir. Her bir birleştirme işlemi, en kötü durumda, her elemanın bir kez karşılaştırılmasını gerektirir, bu da birleştirme işleminin lineer zaman karmaşıklığına (n) sahip olacağı anlamına gelir.
+    
 
-Average case: Aradığımız sayının ortada olması
-Worst case: Aradığımız sayının sonda olması
-Best case: Aradığımız sayının dizinin en başında olması.
-
-Cevap: Sıralı dizi: [2,6,16,18,22,27]
-Aradığımız sayı olan 18 sayısı dizinin ortasında bulunduğundan; uygun kapsam "Average Case"dir
-
-Soru 3:
-[7,3,5,8,2,9,4,15,6] dizisinin Selection Sort'a göre ilk 4 adımını yazınız.
-[7,3,5,8,2,9,4,15,6] n
-[2,3,5,8,7,9,4,15,6] n-1
-[2,3,4,8,7,9,5,15,6] n-2
-[2,3,4,5,7,9,8,15,6] n-3
-[2,3,4,5,6,9,8,15,7] n-4
+Bu iki aşamanın birleşimi, Merge Sort'un O(n log n) zaman karmaşıklığına sahip olmasını sağlar. Çünkü her bölme adımında (log n), her eleman üzerinde bir işlem gerçekleştiriyoruz (n).
