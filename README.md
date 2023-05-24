@@ -1,46 +1,40 @@
-# Proje 2 - Merge Sort
+# Proje 3 - Binary Search Tree
+**[7, 5, 1, 8, 3, 6, 0, 9, 4, 2]**
 
-**[16,21,11,8,12,22]** 
+## Soru 
 
-##   Soru 1 
+Yukarıdaki dizinin Binary-Search-Tree aşamalarını yazınız.  
+**Örnek:** Root x'dir. Root'un sağından y bulunur. Solunda z bulunur vb.
 
-Yukarıdaki dizinin merge sort türüne göre aşamalarını yazınız.
+## Cevap 
 
-## Cevap 1
+Binary Search Tree (BST), her düğümde sol alt ağacın tüm değerlerinin düğüm değerinden küçük, sağ alt ağacın tüm değerlerinin ise düğüm değerinden büyük olduğu bir ağaç yapısıdır.
 
-Merge Sort, diziyi böl ve fethet yaklaşımını kullanır. Bu algoritmanın aşamaları aşağıda belirtilmiştir:
+Verilen dizi: [7, 5, 1, 8, 3, 6, 0, 9, 4, 2]
 
-**Verilen dizi:** [16,21,11,8,12,22]
+Bu diziye göre Binary Search Tree (BST) oluşturulması aşağıdaki gibi olacaktır:
 
- 1. **Bölme aşaması:** İlk olarak, verilen dizi daha küçük parçalara
-    bölünür. Bölünme işlemi, her dizi tek bir elemana indirgenene kadar
-    tekrarlanır.  
-    
-   
- - [16, 21, 11, 8, 12, 22] -> [[16, 21, 11], [8, 12, 22]]  
- - [[16,21,11], [8, 12, 22]] -> [[[16], [21, 11]], [[8], [12, 22]]]  
- - [[[16], [21, 11]], [[8], [12, 22]]] -> [[[[16]], [[21], [11]]], [[[8]], [[12],[22]]]]  
- 
- 2. **Birleştirme aşaması:** Şimdi, daha küçük parçaları
-        karşılaştırarak ve sıralayarak büyük parçalara birleştiririz. Bu
-        işlem, tüm dizinin tamamen sıralanana kadar tekrarlanır.  
+1.  İlk eleman 7'yi root olarak alırız.
+2.  İkinci eleman 5, root'tan küçük olduğu için sol çocuk olur.
+3.  Üçüncü eleman 1, 5'ten küçük olduğu için 5'in sol çocuğu olur.
+4.  Dördüncü eleman 8, root'tan büyük olduğu için sağ çocuk olur.
+5.  Beşinci eleman 3, 1'den büyük ama 5'ten küçük olduğu için 1'in sağ çocuğu olur.
+6.  Altıncı eleman 6, 5'ten büyük ama 7'den küçük olduğu için 5'in sağ çocuğu olur.
+7.  Yedinci eleman 0, 1'den küçük olduğu için 1'in sol çocuğu olur.
+8.  Sekizinci eleman 9, root'tan ve 8'den büyük olduğu için 8'in sağ çocuğu olur.
+9.  Dokuzuncu eleman 4, 3'ten büyük ama 5'ten küçük olduğu için 3'ün sağ çocuğu olur.
+10.  Onuncu eleman 2, 1'den büyük ama 3'ten küçük olduğu için 3'ün sol çocuğu olur.
 
-- [[[[16]], [[21], [11]]], [[[8]], [[12], [22]]]] -> [[[16], [11, 21]], [[8], [12, 22]]]  
-- [[[16], [11, 21]], [[8], [12, 22]]] -> [[11, 16, 21], [8, 12, 22]]  
-- [[11, 16, 21], [8, 12, 22]] -> [8, 11, 12, 16, 21, 22]  
+Bu işlemlerin sonunda oluşturulan Binary Search Tree aşağıdaki gibi olur:
+markdownCopy code
 
-**Sonuç:** [8, 11, 12, 16, 21, 22]  
 
-## Soru 2
-
-Big-O gösterimini yazınız.
-
-## Cevap 2 
-Merge Sort'un Big-O gösterimi O(n log n) olarak ifade edilir. Bunun nedeni algoritmanın "böl ve fethet" yaklaşımıdır.
-
-1.  **Bölme aşaması**: Algoritma, giriş dizisini daha küçük parçalara böler. Her bir bölme işlemi, dizinin boyutunu yarıya indirir. Bu nedenle, bu bölme işlemi logaritmik zaman karmaşıklığına (log n) sahip olacaktır. Çünkü, genel olarak, bir şeyi sürekli olarak yarıya böldüğümüzde, bunu logaritmik sayıda kez yapabiliriz.
-    
-2.  **Birleştirme aşaması**: Daha sonra, bu küçük parçalar, sıralanmış bir dizi oluşturmak üzere birleştirilir. Her bir birleştirme işlemi, en kötü durumda, her elemanın bir kez karşılaştırılmasını gerektirir, bu da birleştirme işleminin lineer zaman karmaşıklığına (n) sahip olacağı anlamına gelir.
-    
-
-Bu iki aşamanın birleşimi, Merge Sort'un O(n log n) zaman karmaşıklığına sahip olmasını sağlar. Çünkü her bölme adımında (log n), her eleman üzerinde bir işlem gerçekleştiriyoruz (n).
+           7  
+          / \
+         5   8
+        / \   \
+       1   6   9 
+      / \   
+     0   3  
+        / \
+       2   4  
